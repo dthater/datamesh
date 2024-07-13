@@ -6,6 +6,8 @@ Datamesh is **NOT a password manager**.
 
 The information persisted by Datamesh is **NOT SECURED** in any way.
 
+![Filter screenshot](docs/screenshots/v1/filter.png)
+
 ## Features
 
 - sqlite persistence
@@ -17,8 +19,6 @@ The information persisted by Datamesh is **NOT SECURED** in any way.
 - drag and drop
 - website title regognition
 - multi word tags
-
-![Filter screenshot](docs/screenshots/v1/filter.png)
 
 ## Setup
 
