@@ -2,8 +2,9 @@
 
 Datamesh is a simplistic digital Zettelkasten, which helps you to collect and organize information relevant or important for you.
 
-Datamesh is NOT a password manager.
-The information persisted by Datamesh is NOT SECURED in any way.
+Datamesh is **NOT a password manager**.
+
+The information persisted by Datamesh is **NOT SECURED** in any way.
 
 ## Features
 
@@ -17,9 +18,9 @@ The information persisted by Datamesh is NOT SECURED in any way.
 - website title regognition
 - multi word tags
 
-![[docs/screenshots/v1/filter.png]]
-![[docs/screenshots/v1/panels.png]]
-![[docs/screenshots/v1/editor.png]]
+![Filter screenshot](docs/screenshots/v1/filter.png)
+![Panels screenshot](docs/screenshots/v1/panels.png)
+![Editor screenshot](docs/screenshots/v1/editor.png)
 
 ## Run
 
@@ -27,7 +28,7 @@ Use Docker to run a PHP instance containing the webapp.
 
 ```bash
 docker run -it --rm --name datamesh \
-  -p $PORT:80 -P \
+  -p 8081:80 -P \
   -v "$PWD/src/php":/app \
   -w /app \
   php:7.4-cli \
