@@ -19,8 +19,6 @@ The information persisted by Datamesh is **NOT SECURED** in any way.
 - multi word tags
 
 ![Filter screenshot](docs/screenshots/v1/filter.png)
-![Panels screenshot](docs/screenshots/v1/panels.png)
-![Editor screenshot](docs/screenshots/v1/editor.png)
 
 ## Setup
 
