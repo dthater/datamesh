@@ -5,6 +5,18 @@ Datamesh is a simplistic digital Zettelkasten, which helps you to collect and or
 Datamesh is NOT a password manager.
 The information persisted by Datamesh is NOT SECURED in any way.
 
+## Features
+
+- sqlite persistence
+- multi panel support
+- markdown-like editor (incl. bullet point lists, headlines, simple text decoration)
+- linking between articles
+- document rating
+- filter
+- drag and drop
+- website title regognition
+- multi word tags
+
 ![[docs/screenshots/v1/filter.png]]
 ![[docs/screenshots/v1/panels.png]]
 ![[docs/screenshots/v1/editor.png]]
