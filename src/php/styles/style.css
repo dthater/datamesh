@@ -1,0 +1,603 @@
+:root {
+  --active-background: rgb(96, 96, 255);
+  --inactive-background: rgb(156, 156, 156);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+* {
+  box-sizing: content-box;
+  font-family: "Avenir Next", "Helvetica Neue", "Trebuchet MS", Tahoma, Arial,
+    Garamond, Helvetica, sans-serif;
+}
+code {
+  font-family: monospace;
+  font-size: 100%;
+  line-height: 1.5em;
+  display: block;
+  white-space: break-spaces;
+}
+.result-body code {
+  background-color:  rgba(0,0,0, 0.66);
+  color: white;
+  padding: 1em;
+  border-radius: .5em;
+}
+.result-body key {
+  background-color: rgba(0,0,0,0.125);
+  padding: 0 .33em;
+  border-radius: 4px;
+  font-family: monospace;
+  font-size: 120%;
+}
+
+
+body {
+  background-color: #eee;
+  display: flex;
+  -ms-flex: 1; /* IE 10 */
+  flex: 1;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+dialog,
+dt-dialog {
+  background-color: #eee;
+  border-radius: 0.5em;
+  box-shadow: 0px 0px 10px rgb(0 0 0 / 50%);
+  border: 0;
+  width: 50%;
+}
+dt-dialog {
+  display: none;
+  margin: auto auto;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 1em;
+  z-index: 1000;
+}
+dt-dialog[data-show="true"] {
+  display: inline-block;
+  animation: 0.5s fade-in;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+toolbar {
+  display: block;
+  flex: 1;
+  justify-content: center;
+  background-color: rgba(0,0,0,.1);
+  padding: 0.5em;
+}
+toolbar input {
+  margin: 0 0.25em;
+}
+toolbar.small button {
+  padding: 0 0.5em;
+  min-width: 1cm;
+  margin-right: 0.25em;
+  background-color: transparent;
+  background-image: none;
+  color: black;
+}
+
+
+dt-info-headbar {
+  display: block;
+  padding-bottom: 1em;
+}
+dt-info-headbar .code {
+  color: silver;
+}
+
+
+.warn {
+  color: red;
+}
+
+.unselectable {
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+a {
+  color: navy;
+  text-decoration: none;
+}
+
+form {
+  margin-block-end: 0;
+}
+button {
+  cursor: pointer;
+}
+
+ol li {
+  -padding-bottom: 1em;
+}
+ol li::marker {
+  color: gray;
+}
+
+button,
+input,
+textarea {
+  width: 100%;
+  border: 0;
+  line-height: 2em;
+  padding: 0 4px;
+  font-size: 100%;
+  border-bottom: 2px solid #dcdcdc50;
+}
+textarea {
+  resize: vertical;
+  font-size: 12pt;
+  line-height: 150%;
+  margin-top: 0.25rem;
+}
+dialog input,
+dialog textarea {
+  width: 100%;
+  outline: none;
+}
+button,
+input[type="button"],
+input[type="submit"] {
+  background-color: var(--inactive-background);
+  background-image: linear-gradient(
+    to bottom,
+    var(--inactive-background),
+    var(--inactive-background)
+  );
+  color: white;
+  cursor: pointer;
+  border-radius: 0.25em;
+  padding-left: 1em;
+  padding-right: 1em;
+  min-width: 0;
+  width: auto;
+  line-height: 1cm;
+}
+button[data-default="true"],
+input[type="submit"][data-default="true"] {
+  background-color: var(--active-background);
+  background-image: linear-gradient(
+    to bottom,
+    var(--active-background),
+    var(--active-background)
+  );
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+results {
+  flex: 1;
+  margin: 0;
+  margin-bottom: 0.5em;
+  overflow-y: scroll;
+  background-color: white;
+}
+.results {
+  padding: 0.5em 0.5em 0.5em 3em;
+  cursor: default;
+  margin: 0;
+}
+.results:empty {
+  display: none;
+}
+.results div {
+  padding: 0.25em;
+}
+.results .dragging {
+  background-color: orange;
+}
+.results button.delete {
+  float: right;
+}
+.results .text {
+  padding: 0.25em 0;
+}
+.results .headline {
+  font-size: 120%;
+  font-weight: bold;
+  display: block;
+  overflow: hidden;
+}
+.results .text:empty {
+  display: none;
+}
+.results .timestamp {
+  color: gray;
+  font-size: 70%;
+  display: block;
+}
+.results .result-tags {
+  display: block;
+  margin-top: 0.5em;
+  font-size: 1em;
+}
+.results .result-tags .tag {
+  border: 1px solid transparent;
+  display: block;
+  margin: 0;
+  padding: 0 0 0.5em 0;
+  vertical-align: text-top;
+}
+.results .result-tags .tag[data-relation]:before,
+.results .result-tags .tag rel {
+  font-weight: bold;
+  vertical-align: text-top;
+  margin-right: 0.5em;
+}
+.results .result-tags .tag[data-relation]:before {
+  content: attr(data-relation);
+  xfloat: left;
+  display: inline-block;
+}
+.results .result-tags:empty {
+  display: none;
+}
+.results .upstream-relations {
+  -text-align: right;
+}
+.results .result-body {
+  border-left: 1px solid silver;
+  padding-left: 1em;
+  overflow-x: auto;
+}
+.results .result-body:empty {
+  display: none;
+}
+.results .result-footer span {
+  xfont-size: 70%;
+  padding-right: 1em;
+}
+.results .result-footer:empty {
+  xdisplay: none;
+}
+
+.results *[data-deleted] {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+.results > li {
+  cursor: pointer;
+  padding: 1em;
+  margin-bottom: 0.5em;
+  border-radius: 0.25em;
+}
+.results li[data-slim="false"]:not([data-weight="0"]) {
+  -box-shadow: 0 0.125em 0.5em silver;
+}
+.results li[data-weight="0"] .text,
+.results li[data-weight="0"] .text * {
+  font-weight: normal;
+}
+.results li[data-slim="true"] {
+  padding: 0.25em 1em;
+}
+.results li[data-slim="true"] .text,
+.results li[data-slim="true"] .text * {
+  font-weight: normal;
+}
+.results > li:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.results li[data-selected="true"],
+.results li[data-selected="true"] * {
+  background-color: var(--active-background);
+  color: white !important;
+  cursor: default;
+}
+.results li[data-selected="true"] .tag {
+  xborder-color: white;
+}
+.results li .link:hover {
+  text-decoration: underline;
+}
+
+.results li .tag {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: text-top;
+  max-width: 100%;
+}
+
+.results .result-body h1 {
+  font-size: 120%;
+}
+.results .result-body h2 {
+  font-size: 115%;
+}
+.results .result-body h3 {
+  font-size: 110%;
+}
+.results .result-body bp {
+  display: inline-block;
+}
+.results .result-body bp[d-level="2"] {
+  margin-left: 1em;
+}
+.results .result-body bp[d-level="3"] {
+  margin-left: 2em;
+}
+.results .result-body bp::before {
+  content: "•";
+  padding-right: 0.25em;
+  padding-left: 0.25em;
+}
+.results .result-body ln {
+  display: inline;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.results .headline a {
+  cursor: pointer;
+}
+
+.results .result-body stars:after {
+  content: "*****";
+  display: inline-block;
+  color: orange;
+}
+
+.tags {
+  list-style-type: none;
+  padding: 0.5em;
+  background-color: white;
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+.tags:empty {
+  display: none;
+}
+.tags li {
+  display: inline-block;
+  margin-right: 1em;
+  background-color: white;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  cursor: pointer;
+}
+.tags li:hover {
+  background-color: rgb(0, 0, 0, 0.05);
+  border-color: var(--active-background);
+}
+
+panels {
+  display: flex;
+  -ms-flex: 1; /* IE 10 */
+  flex: 1;
+  height: 1%; /* fillscreen hack */
+}
+
+panel {
+  display: flex;
+  -ms-flex: 1; /* IE 10 */
+  flex-direction: column;
+  overflow: auto;
+  flex: 1;
+}
+
+footbar:empty {
+  display: none;
+}
+
+/* Search */
+
+.toolbar {
+  background-color: var(--active-background);
+}
+
+.toolbar a,
+.toolbar span {
+  display: inline-block;
+  color: white;
+  line-height: 1cm;
+  margin-left: 0.125cm;
+  margin-right: 0cm;
+  min-width: 0.5cm;
+  text-align: center;
+}
+.toolbar a:hover {
+  opacity: 0.5;
+}
+.toolbar span {
+  color: white;
+  cursor: default;
+}
+.toolbar.height16px a img {
+  height: 18px;
+  vertical-align: text-top;
+  margin: 0.067cm 0.25cm;
+}
+
+.searchbar {
+  display: flex;
+}
+.searchbar input {
+  background-color: rgb(255 253 235);
+  padding-left: 0.5em;
+  flex: 10;
+  outline: none;
+}
+.searchbar input::placeholder {
+  color: rgba(0, 0, 0, 0.2);
+}
+.searchbar .clear-search {
+  display: inline-block;
+  line-height: 2em;
+  vertical-align: middle;
+  text-align: center;
+  width: 2em;
+  cursor: pointer;
+}
+
+/* DROPAREA */
+
+#dragdroparea {
+  display: none;
+  z-index: 2000;
+  margin: 0 0 0 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  border: 3px dashed silver;
+  border: 3px dashed rgb(127, 206, 131);
+  background-color: #eee;
+  background-color: #c1e6c6;
+  text-align: center;
+  opacity: 0.8;
+  margin: 1%;
+  vertical-align: middle;
+  font-size: 140%;
+  padding: 3em;
+}
+
+.dragging #dragdroparea {
+  display: block;
+}
+
+/* SPINNER */
+
+.progressIndicator {
+  display: none;
+  z-index: 3300;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  border: 0;
+  margin: 0;
+  background-color: black;
+  opacity: 0.5;
+  text-align: center;
+}
+
+.progressIndicator img {
+  display: inline-block;
+  top: 45%;
+  position: relative;
+}
+
+.progressIndicator[d-active="true"] {
+  display: block;
+}
+
+.badge {
+  position: relative;
+}
+
+.badge[data-selected]::after {
+  display: inline-block;
+  content: attr(data-selected);
+  color: white;
+  background-color: var(--active-background);
+  position: relative;
+  top: 10px;
+  right: 15px;
+  border-radius: 50%;
+  font-size: 70%;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  margin-left: 0.5em;
+  vertical-align: sub;
+  line-height: 1.4rem;
+  border: 1px solid white;
+}
+
+.badge[data-selected="0"]::after {
+  display: none;
+}
+
+*[data-selected="0"] {
+  display: none;
+}
+
+*[data-enabled="false"] {
+  display: none;
+}
+
+#graph {
+  display: flex;
+  flex: 1;
+  background-color: red;
+}
+
+dt-status {
+  display: inline;
+  border: 1px solid gray;
+  color: gray;
+  background-color: #eee;
+  border-radius: 0.25em;
+  padding: 0 0.25em;
+}
+
+dt-rating {
+  display: inline;
+  padding: 0 0.25em;
+  color: orange;
+}
+dt-rading-empty {
+  color: silver;
+}
+
+dt-stars {
+  display: inline-block;
+  padding: 0 0.25em 0 0;
+}
+dt-star {
+  display: inline;
+  color: silver;
+  cursor: pointer !important;
+}
+dt-star[d-on="true"] {
+  color: orange;
+}
+
+.toolbar .fa-button {
+  min-width: 2rem;
+  vertical-align: sub;
+}
+
+.toolbar .fa-button.fa-button-20,
+.toolbar .fa-button.fa-button-30 {
+  font-size: 20pt;
+  margin-right: 0.33rem;
+}
+
+
+.menuPopup {
+  background-color: var(--active-background);
+  color: white;
+  padding: 0.5em;
+}
+.menuPopup ul li {
+  cursor: pointer;
+}
+

@@ -1,0 +1,41 @@
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #111;
+    color: silver;
+  }
+
+  results {
+    background-color: #000;
+  }
+
+  .searchbar input {
+    background-color: rgb(50,50,90);
+    color: white;
+  }
+
+  toolbar {  
+      background-color: rgba(255,255,255,.1);
+  }
+  
+  .results a {
+    color: var(--active-background) !important;
+  }
+
+  dialog, dt-dialog {
+    background-color: #333;
+  }
+
+  button, input, textarea {
+    background-color: #111;
+    color: silver;
+  }
+
+  toolbar.small button {
+    color: white;
+    border-bottom-width: 0;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  /*  */
+}

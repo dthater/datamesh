@@ -1,0 +1,6 @@
+-- VERSION 5.0
+-- (c) by Damian Thater 2021
+
+ALTER TABLE info ADD COLUMN rank NUMBER;
+ALTER TABLE info ADD COLUMN status INT;
+ALTER TABLE info ADD COLUMN rating INT;

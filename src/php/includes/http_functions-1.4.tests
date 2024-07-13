@@ -1,0 +1,8 @@
+https://www.krav-maga-institut.de
+/<head>.*?<title>(.*?)<\/title>.*<\/head>/is
+
+https://www.golem.de/news/burnout-in-der-it-es-ging-einfach-nichts-mehr-2107-158168-4.html
+/<head>.*?<title>(.*?)<\/title>/is
+Redirect 302 Moved temporary
+
+https://t3n.de/news/entscheidungen-treffen-1132046/

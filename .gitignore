@@ -1,0 +1,15 @@
+# Access
+.htaccess
+.htpasswd
+
+# Logs
+/logs
+
+# Local files
+.*.*
+
+# Database
+/database
+*.sqlite-shm
+*.sqlite-wal
+**/*links.sqlite

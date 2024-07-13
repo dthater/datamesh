@@ -1,0 +1,32 @@
+.fa-button {
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.fa-button-30 {
+  font-size: 30px;
+}
+
+.fa-solid {
+  opacity: 1;
+}
+
+.fa-plus::before { content: "+"; }
+.fa-bars::before { content: "="; }
+.fa-pen-to-square::before { content: "?"; }
+.fa-list-check::before { content: "✔"; }
+.fa-trash-can::before { 
+  background-image: url(../images/icon-trashbin_white_64x64.png);
+  background-repeat: no-repeat;
+  background-size: 30px 30px;
+  width: 30px; 
+  height: 30px;
+  display: inline-block;
+  content: "";
+  top: 5px;
+  position: relative;
+}

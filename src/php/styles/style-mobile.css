@@ -1,0 +1,54 @@
+@media (pointer: none), (pointer: coarse) {
+  body {
+    font-size: 12pt;
+  }
+
+  dt-dialog {
+    width: 90%;
+  }
+
+  code {
+    font-size: 80%;
+    overflow: hidden;
+  }
+
+  dt-dialog toolbar {
+    xflex-direction: column;
+    padding: 0;
+  }
+
+  dt-dialog toolbar input {
+    min-width: none;
+    width: 0;
+  }
+
+  .toolbar.height16px a img {
+    height: 1.3rem;
+  }
+
+  toolbar input,
+  toolbar button {
+    height: 1.3cm;
+    min-width: none;
+    width: 0;
+  }
+
+  .results {
+    padding: 0.5em 0;
+    list-style-type: none;
+  }
+
+  .results > li {
+    border-radius: 0;
+  }
+
+  dt-info-headbar .code {
+    display: none;
+  }
+
+  .toolbar .fa-button.fa-button-30 {
+    font-size: 20pt;
+    margin-right: 0.5rem;
+  }
+  
+}

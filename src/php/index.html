@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ondragenter="PAGE.dragEnter(event);" onmouseleave="PAGE.dragLeave(event);">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="theme-color" content="#6060ff">
+  <title>Datamesh</title>
+
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles/style-mobile.css" />
+  <link rel="stylesheet" href="styles/style-dark.css" />
+  <link rel="stylesheet" href="styles/style-fa.css" />
+  <script src="scripts/common.js"></script>
+  <script src="scripts/script-env.js"></script>
+  <script src="scripts/script-session.js"></script>
+  <script src="scripts/script-window.js"></script>
+  <script src="scripts/script-panel.js"></script>
+  <script src="scripts/script.js"></script>
+</head>
+
+<body ondragover="PAGE.dragOver(event);" ondrop="PAGE.drop(event);">
+  
+  <div id="dragdroparea" onmouseleave="PAGE.dragLeave(event);">
+    Drop a link here.
+  </div>
+
+  <panels>
+  </panels>
+
+  <dt-dialog id="input">
+    <form method="POST" action="" enctype="application/x-www-form-urlencoded"
+      onsubmit="doFormSubmit(event, this); return false;">
+      <input name="uuid" type="hidden" />
+      <input name="text" class="text" placeholder="Information" autocomplete="off" />
+      <textarea name="body" rows="12" class="text" wrap="hard"></textarea>
+      <toolbar class="small" onmousedown="return format(event)" onclick="return false;">
+        <button d-type="dot">-</button>
+        <button d-type="sl">&lt;</button>
+        <button d-type="sr">&gt;</button>
+        <button d-type="fat"><b>fat</b></button>
+        <button d-type="it"><i>it</i></button>
+        <button d-type="key">$</button>
+        <button d-type="h1">H1</button>
+        <button d-type="h2">H2</button>
+        <button d-type="h3">H3</button>
+        <button d-type="date">date</button>
+        <button d-type="code">``</button>
+      </toolbar>
+      <input name="url" class="text" placeholder="URL" autocomplete="off" autocapitalize="none" autocorrect="off" />
+      <toolbar>
+        <input type="button" value="=" onclick="joinInfosFromMemory(event)" />
+        <input type="submit" value="send" data-default="true" />
+        <input type="button" value="abort" onclick="closeDialog(event)" />
+      </toolbar>
+    </form>
+  </dt-dialog>
+
+  <dt-dialog id="relationshipDialog">
+    <form method="POST" action="" enctype="application/x-www-form-urlencoded"
+      onsubmit="doSubmitInfoRelationship(event, this); return false;">
+      <span class="from"></span><br />
+      <input name="text" class="text" placeholder="Relationship" /><br />
+      <span class="to"></span>
+      <toolbar>
+        <input type="submit" value="send" data-default="true" />
+        <input type="button" value="abort" onclick="closeDialog(event)" />
+      </toolbar>
+    </form>
+  </dt-dialog>
+</body>
+
+</html>
