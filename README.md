@@ -22,7 +22,7 @@ The information persisted by Datamesh is **NOT SECURED** in any way.
 
 ## Setup
 
-To create a sqlite DB instance hop into `/src/sql` and run `./init_database.sh`.
+To create a sqlite DB instance hop into `/src/sql` and run `./init_database.sh` in your bash terminal.
 
 ## Run
 
