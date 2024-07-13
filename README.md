@@ -5,7 +5,9 @@ Datamesh is a simplistic digital Zettelkasten, which helps you to collect and or
 Datamesh is NOT a password manager.
 The information persisted by Datamesh is NOT SECURED in any way.
 
-![[docs/images/screenshot-v1.png]]
+![[docs/screenshots/v1/filter.png]]
+![[docs/screenshots/v1/panels.png]]
+![[docs/screenshots/v1/editor.png]]
 
 ## Run
 
