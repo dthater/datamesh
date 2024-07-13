@@ -22,6 +22,10 @@ The information persisted by Datamesh is **NOT SECURED** in any way.
 ![Panels screenshot](docs/screenshots/v1/panels.png)
 ![Editor screenshot](docs/screenshots/v1/editor.png)
 
+## Setup
+
+To create a sqlite DB instance hop into `/src/sql` and run `./init_database.sh`.
+
 ## Run
 
 Use Docker to run a PHP instance containing the webapp.
