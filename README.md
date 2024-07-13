@@ -39,4 +39,4 @@ docker run -it --rm --name datamesh \
 
 ## License
 
-[[LICENSE "See license document"]]
+[[LICENSE]]
